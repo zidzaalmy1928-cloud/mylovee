@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 Myy Zelaa  💕</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <button class="nav-btn active" onclick="switchTab(event, 'hero')">Home</button>
+            <button class="nav-btn" onclick="switchTab(event, 'album')">Album</button>
+            <button class="nav-btn" onclick="switchTab(event, 'game')">Game</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="section active">
+        <div class="hero-content">
+            <div class="hero-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+            </div>
+            
+            <h1>💕 Myy Zelaa 💕</h1>
+            
+            <p class="hero-text">
+                ✨ Setiap momen bersama adalah keindahan. Website ini adalah cara aku merayakan cinta kita dengan foto-foto kenangan, permainan seru, dan lagu "Kasih Putih" yang mewakili perasaanku. ✨
+            </p>
+
+            <div class="button-group">
+                <button class="btn-primary" onclick="switchTab(event, 'album')">📸 Your Album</button>
+                <button class="btn-secondary" onclick="switchTab(event, 'game')">🎮 Play Game</button>
+            </div>
+
+            <div class="decorative">
+                <div class="heart-bounce">💜</div>
+                <div class="heart-bounce">💙</div>
+                <div class="heart-bounce">💗</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Album Section -->
+    <section id="album" class="section">
+        <div style="width: 100%; max-width: 1280px;">
+            <div class="album-header">
+                <h2>📷 Our Story in Moments 📷</h2>
+                <p class="album-subtitle">💕 your beauty and sweetness 💕</p>
+            </div>
+
+            <div class="photo-grid" id="photoGrid">
+                <!-- Photos will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Section -->
+    <section id="game" class="section">
+        <div style="width: 100%; max-width: 512px;">
+            <div class="game-header">
+                <h2>🎮 Play with Me ❤️ 🎮</h2>
+                <p class="album-subtitle">💖 Klik sebanyak mungkin untuk mengumpulkan hati-hati cinta! 💖</p>
+            </div>
+
+            <div class="game-container" id="gameContainer">
+                <div class="game-content" id="gameContent">
+                    <div style="font-size: 64px; animation: bounce 2s infinite;">💖</div>
+                    <div style="font-size: 40px; animation: bounce 2s infinite; animation-delay: 0.2s;">✨</div>
+                    <button class="btn-primary" onclick="startGame()">🎮 Mulai Game</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <div class="player-container">
+            <button class="player-btn" onclick="togglePlay()" title="Play/Pause">
+                <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <svg id="pauseIcon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                    <rect x="6" y="4" width="4" height="16"></rect>
+                    <rect x="14" y="4" width="4" height="16"></rect>
+                </svg>
+            </button>
+
+            <input type="range" class="progress-bar" id="progressBar" min="0" max="100" value="0" onchange="seekAudio(this.value)">
+
+            <span class="time-display" id="timeDisplay">0:00</span>
+
+            <span class="song-title">Kasih Putih</span>
+
+            <button class="player-btn" onclick="toggleMute()" title="Mute/Unmute">
+                <svg id="volumeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M15.54 8.46a7 7 0 0 1 0 9.9M23 9s-4.89-4.89-12 0"></path>
+                </svg>
+                <svg id="muteIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <line x1="23" y1="9" x2="17" y2="15"></line>
+                    <line x1="17" y1="9" x2="23" y2="15"></line>
+                </svg>
+            </button>
+
+            <audio id="audioPlayer" crossOrigin="anonymous" ontimeupdate="updateTime()"></audio>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
